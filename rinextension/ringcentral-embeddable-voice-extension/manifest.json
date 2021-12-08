@@ -1,0 +1,32 @@
+{
+  "name": "RingCentral Embeddable Voice Demo",
+  "description": "A RingCentral Embeddable Voice extension demo",
+  "version": "0.0.1",
+  "permissions": [
+    "http://*/",
+    "https://*/",
+    "storage",
+    "activeTab",
+    "tabs",
+    "background",
+    "tabCapture",
+    "unlimitedStorage",
+    "https://*.office365.com/*",
+    "https://*.office.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.office365.com/*", "https://outlook.office.com/*"],
+      "js": [
+        "./content.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {},
+  "content_security_policy": "script-src 'self' https://ringcentral.github.io/ringcentral-embeddable-voice; object-src 'self'",
+  "manifest_version": 2
+}
